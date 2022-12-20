@@ -1,3 +1,16 @@
+/* 全体共通 */
+
 body {
-	background-color: salmon;
+	background-color: red;
+}
+
+h1 {
+	color: blueviolet;
+}
+
+/* index_.php */
+.youtube_info_wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
