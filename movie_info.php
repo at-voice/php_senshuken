@@ -13,6 +13,8 @@ $pdo = connect_to_db();
 $sql = 'SELECT * FROM comment';
 $stmt = $pdo->prepare($sql);
 
+$user_id = $_SESSION['user_id'];
+
 try {
   $status = $stmt->execute();
 } catch (PDOException $e) {
@@ -28,7 +30,7 @@ $output = "";
 foreach ($result as $record) {
   $output .= "
 <div class='watchers_voice'>
-<p>{$record["comment"]}</p>
+<p>{$record["comment"]} <a href='agree/agree_about_coment_create.php?user_id={$user_id}&todo_id={$record["id"]}'>ほんそれ</a></p>
 <p><span>印象深いセリフ、キーワード </span>{$record["keyword"]}</p>
 </div>
 ";
