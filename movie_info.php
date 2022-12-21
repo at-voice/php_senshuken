@@ -97,6 +97,16 @@ post_date
    </div>
 
     <div>
+    comedian_name:
+    <input type="text" name="comedian_name">
+    </div>
+
+    <div>
+    url:
+    <input type="text" name="website_address">
+    </div>
+
+    <div>
     comment:(textareaに変更する)
     <input type="text" name="comment">
 
@@ -112,7 +122,10 @@ post_date
 
     <div>
     is_for_beginner:
-    <input type="text" name="is_for_beginner">
+      <select name="is_for_beginner" id="is_for_beginner">
+        <option value="いいえ">いいえ</option>
+        <option value="はい">はい</option>
+      </select>
     </div>
 
     <div>
