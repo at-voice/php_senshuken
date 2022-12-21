@@ -9,6 +9,34 @@ check_session_id();
 $pdo = connect_to_db();
 // DB接続終了
 
+// SQL作成＆実行
+$sql = 'SELECT * FROM todo_table';
+$stmt = $pdo->prepare($sql);
+
+try {
+  $status = $stmt->execute();
+} catch (PDOException $e) {
+  echo json_encode(["sql error" => "{$e->getMessage()}"]);
+  exit();
+}
+// SQL作成＆実行 終了
+
+// SQL実行後の動き
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$output = "";
+foreach ($result as $record) {
+  $output .= "
+    <tr>
+      <td>{$record["deadline"]}</td>
+      <td>{$record["todo"]}</td>
+    </tr>
+  ";
+}
+// SQL実行後の動き 終了
+
+
+
+
 ?>
 
 <!DOCTYPE html>

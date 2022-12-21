@@ -30,6 +30,11 @@ $pdo = connect_to_db();
 <a href="test.php">[test]ログアウトしてたら見られないページ</a>
 <p>相対パスをコピーって便利…</p>
 
+<div class="search_wrapper">
+  
+</div>
+
+
 <div class="youtube_info_wrapper">
   <div class="list_youtube">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/l-gF3W03mKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -43,6 +48,7 @@ $pdo = connect_to_db();
   </div>
 
 </div>
+
 
 
 

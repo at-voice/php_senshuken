@@ -14,3 +14,25 @@ h1 {
 	justify-content: center;
 	align-items: center;
 }
+
+/* index1.php */
+.comment_wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.movie_comment {
+	width: 360px;
+	border: 2px solid salmon;
+}
+
+.movie_keyword {
+	width: 200px;
+	border: 2px solid darkcyan;
+}
+
+/* movie_info.php */
+.watchers_voice {
+	width: 200px;
+	border: 2px solid darkcyan;
+}

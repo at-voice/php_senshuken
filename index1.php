@@ -27,16 +27,16 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $output = "";
 foreach ($result as $record) {
   $output .= "
-<div class='watchers_voice'>
-<p>{$record["comment"]}</p>
-<p><span>印象深いセリフ、キーワード </span>{$record["keyword"]}</p>
-</div>
-";
-
+  <a href='{$record["website_address"]}'>{$record["comment"]}</a><a> </a>
+  ";
 }
 
-
-
+$output2 = "";
+foreach ($result as $record) {
+  $output2 .= "
+  <a href='{$record["website_address"]}'>{$record["keyword"]}</a><a> </a>
+  ";
+}
 // SQL実行後の動き 終了
 
 
@@ -58,14 +58,19 @@ foreach ($result as $record) {
 
 <body>
 <h2>
-ここはmovie_info.phpです
+ここはindex1.phpです
 </h2>
 
 <div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/l-gF3W03mKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="comment_wrapper">
+<div class="movie_comment">
+  <?= $output ?>
+</div>
 
-      <div class="watchers_voice_wraper">
-<?=$output?>
+<div class="movie_keyword">
+  <?= $output2 ?>
+</div>
+
       </div>
 
 
@@ -75,16 +80,12 @@ foreach ($result as $record) {
 
 </div>
 
-
-
-<h2>メモ用</h2>
-<p>時間無かったら投稿フォームを別窓で出そう</p>
-
 <hr>
 
+<!-- 投稿フォーム -->
 <h2>投稿フォーム</h2>
 <div class="comment_form">
-  <form action="comment/comment_from_movie_info.php" method="post">
+  <form action="movie_info/movie_info_create.php" method="post">
 
   <div>
     username:
