@@ -1,5 +1,7 @@
 <?PHP
 
+// URLを渡すための動き
+
 // var_dump($_POST);
 // exit();→ちゃんと取れてる！
 
@@ -11,30 +13,12 @@ check_session_id();
 $pdo = connect_to_db();
 // DB接続終了
 
-// 必須項目未記入の場合の処理を書く
-if (
-  !isset($_POST['gender']) || $_POST['gender']=='' ||
-  !isset($_POST['age']) || $_POST['age']=='' ||
-  !isset($_POST['comedian_name']) || $_POST['comedian_name']=='' ||
-  !isset($_POST['website_address']) || $_POST['website_address']=='' ||
-  !isset($_POST['comment']) || $_POST['comment']==''
-) {
-  exit('必須項目が未記入です');
-}
-// 必須項目未記入の場合の処理を書く（ここまで）
-
 // データ受け取り
-$username = $_POST['username'];
-$nickname = $_POST['nickname'];
-$gender = $_POST['gender'];
-$age = $_POST['age'];
-$comedian_name = $_POST['comedian_name'];
-$website_address = $_POST['website_address'];
-$comment = $_POST['comment'];
-$spoiler_comment = $_POST['spoiler_comment'];
-$keyword = $_POST['keyword'];
-$is_for_beginner = $_POST['is_for_beginner'];
+$site_address = $_GET['site_address'];
 // データ受け取りここまで
+
+// var_dump($site_address);
+// exit();→取れた
 
 // SQL作成＆実行
 $sql = 'INSERT INTO comment(id, username, nickname, gender, age, comedian_name, website_address, comment, spoiler_comment, keyword, is_for_beginner, post_date) VALUES (NULL, :username, :nickname, :gender, :age, :comedian_name, :website_address, :comment, :spoiler_comment, :keyword, :is_for_beginner, now()) ';

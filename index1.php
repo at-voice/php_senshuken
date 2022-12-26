@@ -27,14 +27,21 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $output = "";
 foreach ($result as $record) {
   $output .= "
-  <a href='{$record["website_address"]}'>{$record["comment"]}</a><a> </a>
+  <form action='movie_info.php' method='get'>
+  <input type='hidden' value='{$record["website_address"]}' name='site_address'>
+  <button class='list_button' value='{$record["comment"]}'>“{$record["comment"]}”</button>
+  </form>
   ";
 }
+
 
 $output2 = "";
 foreach ($result as $record) {
   $output2 .= "
-  <a href='{$record["website_address"]}'>{$record["keyword"]}</a><a> </a>
+  <form action='movie_info.php' method='get'>
+  <input type='hidden' value='{$record["website_address"]}' name='site_address'>
+  <button class='list_button' value='{$record["keyword"]}'>“{$record["keyword"]}”</button>
+  </form>
   ";
 }
 // SQL実行後の動き 終了
@@ -52,26 +59,29 @@ foreach ($result as $record) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>movie_info.php</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
- <script src="https: //ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  </head>
 
 <body>
-<h2>
-ここはindex1.phpです
-</h2>
-
-<div>
-      <div class="comment_wrapper">
-<div class="movie_comment">
-  <?= $output ?>
+<div class="header">
+<img src="img/logo.png" alt="">
 </div>
 
+<div class="comment_wrapper">
+
+  <div class="movie_comment">
+<h2>感想</h2>
+  <?= $output ?>
+  </div>
+
 <div class="movie_keyword">
+  <h2>印象に残ったセリフ、キーワード</h2>
   <?= $output2 ?>
 </div>
 
-      </div>
+ </div>
 
 
 
@@ -80,25 +90,16 @@ foreach ($result as $record) {
 
 </div>
 
-<hr>
 
 <!-- 投稿フォーム -->
-<h2>投稿フォーム</h2>
 <div class="comment_form">
-  <form action="movie_info/movie_info_create.php" method="post">
+  <form action="comment/comment_from_index.php" method="post">
 
   <div>
-    username:
-    <input type="text" name="username">
-    </div>
 
+  <div class="comment_form_part">
     <div>
-    nickname:
-    <input type="text" name="nickname">
-    </div>
-
-    <div>
-    gender:
+    性別
     <select name="gender" id="gender">
         <option value="男">男</option>
         <option value="女">女</option>
@@ -107,7 +108,7 @@ foreach ($result as $record) {
    </div>
 
    <div>
-   age:
+   年代
       <select name="age" id="age">
         <option value="10代前半">10代前半</option>
         <option value="10代後半">10代後半</option>
@@ -115,33 +116,29 @@ foreach ($result as $record) {
         <option value="20代後半">20代後半</option>
       </select>
    </div>
+  </div>
+
 
     <div>
-    comedian_name:
-    <input type="text" name="comedian_name">
-    </div>
-
-    <div>
-    url:
+    動画URL
     <input type="text" name="website_address">
     </div>
 
+    <div class="comment_form_part">
     <div>
-    comment:(textareaに変更する)
+    感想
     <input type="text" name="comment">
+</div>
 
     <div>
-    spoiler_comment:
-    <input type="text" name="spoiler_comment">
-    </div>
-
-    <div>
-    keyword:
+    印象に残ったセリフ・キーワード
     <input type="text" name="keyword">
     </div>
+    </div>
 
+  <div class="comment_form_part">
     <div>
-    is_for_beginner:
+    これは初心者向けですか？
       <select name="is_for_beginner" id="is_for_beginner">
         <option value="いいえ">いいえ</option>
         <option value="はい">はい</option>
@@ -151,9 +148,11 @@ foreach ($result as $record) {
     <div>
       <button>書き込む</button>
     </div>
+    </div>
 
   </form>
 </div>
+
 
 </body>
 </html>

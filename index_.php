@@ -30,8 +30,10 @@ $pdo = connect_to_db();
 <a href="test.php">[test]ログアウトしてたら見られないページ</a>
 <p>相対パスをコピーって便利…</p>
 
-<div class="search_wrapper">
-  
+<div class="search_wrapper_part">
+<input type="text" name="" id="">
+<button></button>
+
 </div>
 
 

@@ -1,38 +1,90 @@
 /* 全体共通 */
 
 body {
-	background-color: red;
+	background-color: white;
+	/* font-family: "Sawarabi Mincho", serif; */
 }
 
 h1 {
 	color: blueviolet;
 }
 
+.header {
+	position: sticky;
+	top: 0;
+}
+
 /* index_.php */
-.youtube_info_wrapper {
+/* .youtube_info_wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
+} */
 
 /* index1.php */
 .comment_wrapper {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	font-family: "Sawarabi Mincho", serif;
+	margin-bottom: 15vh;
 }
 
 .movie_comment {
-	width: 360px;
-	border: 2px solid salmon;
+	/* border: 2px solid salmon; */
+	font-family: "Sawarabi Mincho";
+	margin-bottom: 15vh;
 }
 
 .movie_keyword {
-	width: 200px;
-	border: 2px solid darkcyan;
+	/* border: 2px solid darkcyan; */
+	margin-top: 10%;
+}
+
+.comment_form {
+	padding-left: 25%;
+	padding-right: 25%;
+	position: fixed;
+	bottom: 0;
+	height: 15vh;
+	background-color: #fff;
+}
+
+.comment_form button {
+	font-family: "Sawarabi Mincho", serif;
+}
+
+.comment_form_part {
+	display: flex;
+	align-items: center;
+	gap: 2vw;
 }
 
 /* movie_info.php */
 .watchers_voice {
-	width: 200px;
-	border: 2px solid darkcyan;
+	width: 45%;
+	border: none;
+	border-radius: 2px;
+	margin: 5vw auto;
+	padding: 5vw auto;
+}
+
+.watchers_voice p {
+	padding: 5vw auto;
+}
+
+.list_button {
+	background-color: white;
+	border: none;
+	font-size: 60px;
+	text-align: left;
+}
+
+.list_button a:hover {
+	background-color: aliceblue;
+}
+
+span {
+	background-color: aliceblue;
+	padding: 2px;
 }
